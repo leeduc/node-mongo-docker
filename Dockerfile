@@ -8,6 +8,10 @@ MAINTAINER Sindre Seppola <sblix.dev@gmail.com>
 #  - https://docs.docker.com/engine/examples/mongodb/
 #  - https://docs.mongodb.com/v2.6/tutorial/install-mongodb-on-debian/
 
+# Improvement inspiration:
+#  - https://github.com/docker-library/mongo/blob/master/3.0/Dockerfile
+
+
 # Import the public key used by the package management system.
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
 
