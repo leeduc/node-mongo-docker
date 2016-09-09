@@ -27,7 +27,7 @@ RUN apt-get update && \
 
 
 # Create the MongoDB data directory
-ADD /data/db
+RUN mkdir -p /data/db
 
 
 # Install the MongoDB packages
