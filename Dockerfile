@@ -17,7 +17,7 @@ RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
 
 
 # Create a list file for MongoDB
-RUN echo 'deb http://downloads-distro.mongodb.org/repo/debian-sysvinit dist 10gen' | tee /etc/apt/sources.list.d/mongodb.list
+RUN echo 'deb http://downloads-distro.mongodb.org/repo/debian-sysvinit dist multiverse' | tee /etc/apt/sources.list.d/mongodb-3.2.list
 
 
 
