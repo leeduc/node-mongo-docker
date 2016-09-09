@@ -1,5 +1,5 @@
 FROM node:6.4.0
-ENV MONGODB_VERSION 3.2.7
+ENV MONGODB_VERSION 3.2.9
 
 MAINTAINER Sindre Seppola <sblix.dev@gmail.com>
 
