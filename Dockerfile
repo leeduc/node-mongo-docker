@@ -1,4 +1,4 @@
-FROM node:6.3.0
+FROM node:6.5-wheezy
 ENV MONGODB_VERSION 3.2.7
 
 MAINTAINER Sindre Seppola <sblix.dev@gmail.com>
