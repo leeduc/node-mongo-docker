@@ -32,8 +32,8 @@ RUN mkdir -p /data/db
 
 # Install the MongoDB packages
 RUN apt-get install -y \
-      mongodb-org=$MONGODB_VERSION \
-      mongodb-org-server=$MONGODB_VERSION \
-      mongodb-org-shell=$MONGODB_VERSION \
-      mongodb-org-mongos=$MONGODB_VERSION \
-      mongodb-org-tools=$MONGODB_VERSION
+      mongodb-org \
+      mongodb-org-server \
+      mongodb-org-shell \
+      mongodb-org-mongos \
+      mongodb-org-tools
