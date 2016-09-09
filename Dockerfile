@@ -1,5 +1,5 @@
 FROM node:6.3.0
-ENV MONGODB_VERSION 3.2.7
+ENV MONGODB_VERSION 3.1.0
 
 MAINTAINER Sindre Seppola <sblix.dev@gmail.com>
 
@@ -17,7 +17,7 @@ RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
 
 
 # Create a list file for MongoDB
-RUN echo 'deb http://downloads-distro.mongodb.org/repo/debian-sysvinit dist multiverse' | tee /etc/apt/sources.list.d/mongodb-3.2.list
+RUN echo "deb http://repo.mongodb.org/apt/debian wheezy/mongodb-org/3.1 main" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.1.list
 
 
 
