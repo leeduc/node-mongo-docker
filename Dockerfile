@@ -29,6 +29,7 @@ RUN apt-get update && \
 # Create the MongoDB data directory
 RUN mkdir -p /data/db
 
+RUN apt-get -y apt-transport-https
 
 # Install the MongoDB packages
 RUN apt-get install -y \
@@ -36,4 +37,4 @@ RUN apt-get install -y \
       mongodb-org-server=$MONGODB_VERSION \
       mongodb-org-shell=$MONGODB_VERSION \
       mongodb-org-mongos=$MONGODB_VERSION \
-      mongodb-org-tools=$MONGODB_VERSION
+      mongodb-org-tools=$MONGODB_VERSION      
