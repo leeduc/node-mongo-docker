@@ -22,11 +22,6 @@ RUN apt-get install -y nodejs && \
 # Improvement inspiration:
 #  - https://github.com/docker-library/mongo/blob/master/3.0/Dockerfile
 
-
-# Import MongoDB public GPG key AND create a MongoDB list file
-RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
-RUN echo "deb http://repo.mongodb.org/apt/ubuntu "$(lsb_release -sc)"/mongodb-org/3.2 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-3.2.list
-
 # Install mongoDb
 RUN apt-get update > /dev/null && \
     apt-get install -y curl && \
