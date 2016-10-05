@@ -23,9 +23,14 @@ RUN echo 'deb http://downloads-distro.mongodb.org/repo/debian-sysvinit dist 10ge
 
 # Reload local package database
 RUN apt-get update && \
+    apt-get install build-essential tcl && \
     apt-get install -y apt-utils
 
-
+RUN cd /tmp
+RUN curl -O http://download.redis.io/redis-stable.tar.gz
+RUN tar xzvf redis-stable.tar.gz
+RUN cd redis-stable
+RUN make && make install
 # Create the MongoDB data directory
 RUN mkdir -p /data/db
 
