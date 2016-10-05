@@ -1,5 +1,6 @@
 FROM ubuntu:16.04
 ENV MONGODB_VERSION 3.2.7
+ENV NODE_VERSION v6.5.0
 
 MAINTAINER Le Duc <lee.duc55@gmail.com>
 
@@ -12,8 +13,14 @@ RUN apt-get update && \
     apt-get install -y apt-utils
 
 # Install NodeJs
-RUN apt-get install -y nodejs && \
-    apt-get install -y npm
+run apt-get install -y python
+add http://nodejs.org/dist/$NODE_VERSION/node-$NODE_VERSION-linux-x64.tar.gz /tmp/node/
+run tar -C /tmp/node -zxvf /tmp/node/node* && rm /tmp/node/*.tar.gz
+run cp -R -n /tmp/node/*/* /usr/local
+run rm -Rf /tmp/node.tar.gz
+run node -v
+
+RUN apt-get install -y npm
 
 # Mongodb install instructions:
 #  - https://docs.docker.com/engine/examples/mongodb/
