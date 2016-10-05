@@ -1,8 +1,19 @@
-FROM node:6.5-wheezy
+FROM ubuntu:16.04
 ENV MONGODB_VERSION 3.2.7
 
-MAINTAINER Sindre Seppola <sblix.dev@gmail.com>
+MAINTAINER Le Duc <lee.duc55@gmail.com>
 
+# NodeJs install instructions:
+#  - https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-16-04
+
+# Reload local package database
+RUN apt-get update && \
+    apt-get install -y build-essential tcl && \
+    apt-get install -y apt-utils
+
+# Install NodeJs
+RUN apt-get install -y nodejs && \
+    apt-get install -y npm
 
 # Mongodb install instructions:
 #  - https://docs.docker.com/engine/examples/mongodb/
@@ -16,29 +27,11 @@ MAINTAINER Sindre Seppola <sblix.dev@gmail.com>
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
 
 
-# Create a list file for MongoDB
-RUN echo 'deb http://downloads-distro.mongodb.org/repo/debian-sysvinit dist 10gen' | tee /etc/apt/sources.list.d/mongodb.list
+# Install mongoDb
+RUN apt-get update && apt-get install -y mongodb-org=3.3.9 mongodb-org-server=3.3.9 mongodb-org-shell=3.3.9 mongodb-org-mongos=3.3.9 mongodb-org-tools=3.3.9
 
-
-
-# Reload local package database
-RUN apt-get update && \
-    apt-get install build-essential tcl && \
-    apt-get install -y apt-utils
-
-RUN cd /tmp
-RUN curl -O http://download.redis.io/redis-stable.tar.gz
-RUN tar xzvf redis-stable.tar.gz
-RUN cd redis-stable
-RUN make && make install
 # Create the MongoDB data directory
 RUN mkdir -p /data/db
 
-
-# Install the MongoDB packages
-RUN apt-get install -y \
-      mongodb-org \
-      mongodb-org-server \
-      mongodb-org-shell \
-      mongodb-org-mongos \
-      mongodb-org-tools
+# Install Redis
+RUN apt-get install -y redis-server
