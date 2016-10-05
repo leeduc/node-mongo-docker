@@ -33,7 +33,7 @@ RUN apt-get update > /dev/null && \
     curl -O https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-3.2.9.tgz && \
     tar -zxvf mongodb-linux-x86_64-3.2.9.tgz && \
     mv mongodb-linux-x86_64-3.2.9 mongodb && \
-    rm -rf mongodb-linux-x86_64-3.2.9.tgz && \
+    rm -rf mongodb-linux-x86_64-3.2.9.tgz
         
 # Create the MongoDB data directory
 RUN mkdir -p /data/db
